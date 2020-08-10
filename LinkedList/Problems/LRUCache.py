@@ -27,7 +27,45 @@ Queries = SET 1 2 SET 2 3 SET 1 5 SET 4 5 SET 6 7 GET 4 GET 1
 
 """
 
+from collections import OrderedDict 
+  
+class LRUCache2:
+    """
+    This is Geeks For Geeks Implementation
+    
+    """
+    # initialising capacity 
+    def __init__(self, capacity: int): 
+        self.cache = OrderedDict() 
+        self.capacity = capacity 
+  
+    # we return the value of the key 
+    # that is queried in O(1) and return -1 if we 
+    # don't find the key in out dict / cache. 
+    # And also move the key to the end 
+    # to show that it was recently used. 
+    def get(self, key: int) -> int: 
+        if key not in self.cache: 
+            return -1
+        else: 
+            self.cache.move_to_end(key) 
+            return self.cache[key] 
+  
+    # first, we add / update the key by conventional methods. 
+    # And also move the key to the end to show that it was recently used. 
+    # But here we will also check whether the length of our 
+    # ordered dictionary has exceeded our capacity, 
+    # If so we remove the first key (least recently used) 
+    def set(self, key: int, value: int) -> None: 
+        self.cache[key] = value 
+        self.cache.move_to_end(key) 
+        if len(self.cache) > self.capacity: 
+            self.cache.popitem(last = False) 
+
 class LRUCache:
+    """
+    This is my own implementation.
+    """
         
     def __init__(self,cap):
         #cap: capacity of cache
@@ -82,6 +120,7 @@ if __name__ == '__main__':
         a = list(map(str, input().strip().split()))  # parent child info in list
         
         lru=LRUCache(cap)
+        lru2 = LRUCache2(cap)
         
        
         i=0
@@ -91,10 +130,12 @@ if __name__ == '__main__':
             
             if qtyp=='SET':
                 lru.set(int(a[i+1]),int(a[i+2]))
+                lru2.set(int(a[i+1]),int(a[i+2]))
                 #print (lru.cache)
                 i+=3
             elif qtyp=='GET':
                 print(lru.get(int(a[i+1])),end=' ')
+                print(lru2.get(int(a[i+1])),end=' ')
                 #print (lru.cache)
                 i+=2
             q+=1
