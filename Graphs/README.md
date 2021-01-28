@@ -1,3 +1,8 @@
+## Asymptotic notations:  
+1. BigO: Big O notation (worst case time complexity).  
+2. Theta: theta notation (average case time complexity).   
+3. Omega: omega notation (Best case time complexity)  
+  
 ## Comparison of Adjacency Matrix and Adjacency List:  
   
 Given a graph G(V,E):  
