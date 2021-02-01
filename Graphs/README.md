@@ -21,3 +21,15 @@ Given a graph G(V,E):
 5. Remove an edge:
    - Adjacency List: Theta(V).  
    - Adjacency List: Theta(1).  
+   
+## Applications of BFS:  
+1. Shortest Path in an unweighted graph.  
+2. Crawlers in search engines.  
+3. peer to peer networks.  
+4. Social networking search.  
+5. In Garbage collection (Cheney's Algorithm).  
+6. Cycle detection.  
+7. Ford fulkerson algorithm (Maximum flow algorithm).  
+8. Broadcasting.  
+9. Dijkstra algorithm.  
+10. Prims algorithm (minimal spanning tree).  
