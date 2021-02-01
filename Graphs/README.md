@@ -13,7 +13,7 @@ Given a graph G(V,E):
    - Adjacency List: BigO(V)  
    - Adjacency Matrix: Theta(1)  
 3. Find all adjacent of u:  
-   - Adjacency List: Theta(degree(u))  
+   - Adjacency List: Theta(degree(u)) (Theta(outDegree(u)) incase of directed graph).  
    - Adjacency Matrix: Theta(V)  
 4. Add an edge:  
    - Adjacency List: Theta(1)  
